@@ -13,14 +13,14 @@ public class FlashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_flash);
 
         if (userLoggedIn()){
-            //Change activity to main page
+            // TODO:Change activity to main page
         } else {
-            //Change activity to sign in / sign up page
+            // TODO:Change activity to sign in / sign up page
         }
     }
 
     private boolean userLoggedIn() {
-        //create method to check if user is logged in or not
+        // TODO:create method to check if user is logged in or not
         return false;
     }
 }
