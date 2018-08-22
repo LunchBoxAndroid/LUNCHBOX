@@ -11,5 +11,16 @@ public class FlashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flash);
+
+        if (userLoggedIn()){
+            //Change activity to main page
+        } else {
+            //Change activity to sign in / sign up page
+        }
+    }
+
+    private boolean userLoggedIn() {
+        //create method to check if user is logged in or not
+        return false;
     }
 }
