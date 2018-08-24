@@ -1,5 +1,6 @@
 package com.lunchbox.lunchbox;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -14,6 +15,8 @@ public class FlashActivity extends AppCompatActivity {
 
         if (userLoggedIn()){
             // TODO:Change activity to main page
+            Intent intent = new Intent(this,BulkOrderActivity.class);
+            startActivity(intent);
         } else {
             // TODO:Change activity to sign in / sign up page
         }
@@ -21,6 +24,6 @@ public class FlashActivity extends AppCompatActivity {
 
     private boolean userLoggedIn() {
         // TODO:create method to check if user is logged in or not
-        return false;
+        return true;
     }
 }
