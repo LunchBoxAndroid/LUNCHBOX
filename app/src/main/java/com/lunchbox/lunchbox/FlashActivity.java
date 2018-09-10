@@ -30,7 +30,9 @@ public class FlashActivity extends AppCompatActivity {
     }
 
     private boolean userLoggedIn() {
+
         // TODO:create method to check if user is logged in or not and remove the timer
+
         CountDownTimer countDownTimer = new CountDownTimer(5000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
