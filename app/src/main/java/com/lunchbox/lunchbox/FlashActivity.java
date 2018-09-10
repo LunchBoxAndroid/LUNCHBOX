@@ -18,6 +18,8 @@ public class FlashActivity extends AppCompatActivity {
             // TODO:Change activity to main page
         } else {
             // TODO:Change activity to sign in / sign up page
+            Intent intent=new Intent(this,SignInActivity.class);
+            startActivity(intent);
         }
     }
 
