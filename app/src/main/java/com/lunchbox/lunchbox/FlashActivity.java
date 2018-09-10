@@ -9,17 +9,6 @@ import android.view.View;
 
 public class FlashActivity extends AppCompatActivity {
 
-    public void signup(View view)
-    {
-
-        Intent intent=new Intent(FlashActivity.this,HomeActivity.class);
-        startActivity(intent);
-    }
-    public void login(View view)
-    {
-        Intent intent=new Intent(FlashActivity.this,HomeActivity.class);
-        startActivity(intent);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
