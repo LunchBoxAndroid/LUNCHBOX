@@ -1,6 +1,8 @@
 package com.lunchbox.lunchbox;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +30,21 @@ public class FlashActivity extends AppCompatActivity {
     }
 
     private boolean userLoggedIn() {
-        // TODO:create method to check if user is logged in or not
-        return false;
+        // TODO:create method to check if user is logged in or not and remove the timer
+        CountDownTimer countDownTimer = new CountDownTimer(5000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                Intent intent=new Intent(FlashActivity.this,SignInActivity.class);
+                startActivity(intent);
+            }
+        };
+
+        countDownTimer.start();
+        return true;
     }
 }
