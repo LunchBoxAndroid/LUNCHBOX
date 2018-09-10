@@ -1,5 +1,6 @@
 package com.lunchbox.lunchbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -53,6 +54,14 @@ public class homeFragment extends Fragment {
                     ft.replace(R.id.screen,fragment);
                     ft.commit();
                 }
+            }
+        });
+
+        view.findViewById(R.id.bulkOrderButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),BulkOrderActivity.class);
+                startActivity(intent);
             }
         });
 
