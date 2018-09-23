@@ -65,6 +65,14 @@ public class homeFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.addOnButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),AddOnActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
