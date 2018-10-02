@@ -23,21 +23,6 @@ public class homeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, null);
 
     }
-    public void dpm(View view)
-    {
-        Fragment fragment=null;
-        fragment=new dailyFragment();
-        if(fragment!=null)
-        {
-            FragmentManager fragmentManager=getFragmentManager();
-            FragmentTransaction ft =fragmentManager.beginTransaction();
-            ft.replace(R.id.screen,fragment);
-            ft.commit();
-        }
-    }
-
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -45,15 +30,8 @@ public class homeFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-                Fragment fragment=null;
-                fragment=new dailyFragment();
-                if(fragment!=null)
-                {
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction ft =fragmentManager.beginTransaction();
-                    ft.replace(R.id.screen,fragment);
-                    ft.commit();
-                }
+                Intent intent=new Intent(getContext(),Home.class);
+                startActivity(intent);
             }
         });
 
