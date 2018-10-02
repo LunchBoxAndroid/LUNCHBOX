@@ -22,7 +22,9 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".BulkOrderActivity" />
-        <activity android:name=".Home"></activity>
+        <activity android:name=".AddOnActivity"/>
+        <activity android:name=".Home"/>
+
     </application>
 
 </manifest>
