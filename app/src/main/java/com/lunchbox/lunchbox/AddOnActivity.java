@@ -23,20 +23,25 @@ public class AddOnActivity extends AppCompatActivity {
 
         final List<AddOnItem> addOnItems = new ArrayList<>();
 
-        addOnItem = new AddOnItem("Chicken Butter Masala",179.9,false,0);
+        addOnItem = new AddOnItem("Item 0",179.9,false,0);
         addOnItems.add(addOnItem);
-        addOnItem = new AddOnItem("Chicken Hydrabadi",169.9,false,0);
+        addOnItem = new AddOnItem("Item 1",169.9,false,0);
         addOnItems.add(addOnItem);
-        addOnItem = new AddOnItem("Paneer Hydrabadi",169.9,true,0);
+        addOnItem = new AddOnItem("Item 2",169.9,true,0);
         addOnItems.add(addOnItem);
-        addOnItem = new AddOnItem("Paneer Butter Masala",179.9,true,0);
+        addOnItem = new AddOnItem("Item 3",179.9,true,0);
         addOnItems.add(addOnItem);
+        addOnItem = new AddOnItem("Item 4",179.9,true,0);
         addOnItems.add(addOnItem);
+        addOnItem = new AddOnItem("Item 5",179.9,true,0);
         addOnItems.add(addOnItem);
+        addOnItem = new AddOnItem("Item 6",179.9,true,0);
         addOnItems.add(addOnItem);
-        addOnItem = new AddOnItem("Chicken Butter Masala",179.9,false,0);
+        addOnItem = new AddOnItem("Item 7",179.9,false,0);
         addOnItems.add(addOnItem);
+        addOnItem = new AddOnItem("Item 8",179.9,true,0);
         addOnItems.add(addOnItem);
+        addOnItem = new AddOnItem("Item 9",179.9,true,0);
         addOnItems.add(addOnItem);
 
 
