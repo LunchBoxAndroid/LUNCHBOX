@@ -45,6 +45,13 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        navigationView.setCheckedItem(R.id.nav_camera);
+
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction ft =fragmentManager.beginTransaction();
+        ft.replace(R.id.screen,new homeFragment());
+        ft.commit();
     }
 
     @Override
