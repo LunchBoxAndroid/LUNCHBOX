@@ -23,6 +23,7 @@
         <activity android:name=".SignInActivity" />
         <activity android:name=".BulkOrderActivity" />
         <activity android:name=".AddOnActivity"></activity>
+        <activity android:name=".Home"></activity>
     </application>
 
 </manifest>
