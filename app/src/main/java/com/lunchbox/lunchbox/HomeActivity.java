@@ -92,18 +92,29 @@ public class HomeActivity extends AppCompatActivity
         Fragment fragment=null;
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
+
             fragment=new homeFragment();
-        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_reschedule) {
 
-        } else if (id == R.id.nav_manage) {
+            fragment=new rescheduleFragment();
+
+        } else if (id == R.id.nav_record) {
+
+            fragment=new OrderRecordFragment();
+
+        } else if (id == R.id.nav_faq) {
+
+            fragment=new rescheduleFragment();
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+            fragment=new shareFragment();
 
+        } else if (id == R.id.nav_contact) {
+
+            fragment=new contactFragment();
         }
         if(fragment!=null)
         {
