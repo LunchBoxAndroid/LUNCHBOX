@@ -106,7 +106,7 @@ public class HomeActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_faq) {
 
-            fragment=new rescheduleFragment();
+            fragment=new FAQFragment();
 
         } else if (id == R.id.nav_share) {
 
