@@ -18,6 +18,7 @@ import android.view.MenuItem;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
