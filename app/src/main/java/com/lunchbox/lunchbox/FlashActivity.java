@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 //Function of this activity : To check if a user is signed in or not
 
 public class FlashActivity extends AppCompatActivity {
@@ -22,31 +24,19 @@ public class FlashActivity extends AppCompatActivity {
 
         if (userLoggedIn()){
             // TODO:Change activity to main page
+            Intent intent=new Intent(this,HomeActivity.class);
+            startActivity(intent);
+            finish();
         } else {
             // TODO:Change activity to sign in / sign up page
-            Intent intent=new Intent(this,SignInActivity.class);
+            Intent intent=new Intent(this,LoginActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
     private boolean userLoggedIn() {
 
-        // TODO:create method to check if user is logged in or not and remove the timer
-
-        CountDownTimer countDownTimer = new CountDownTimer(5000,1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-
-            }
-
-            @Override
-            public void onFinish() {
-                Intent intent=new Intent(FlashActivity.this,SignInActivity.class);
-                startActivity(intent);
-            }
-        };
-
-        countDownTimer.start();
-        return true;
+        return (FirebaseAuth.getInstance().getCurrentUser() != null);
     }
 }
