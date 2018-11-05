@@ -5,41 +5,50 @@
     android:layout_height="wrap_content"
     android:background="#37474F">
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="187dp"
+    <RadioGroup
+        android:id="@+id/radioButtonMealType"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="LUNCH"
-        android:textColor="@color/cardview_light_background" />
+        android:orientation="horizontal"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="134dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button7"
-        android:layout_alignBottom="@+id/button7"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/button7"
-        android:layout_weight="1"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="DINNER"
-        android:textColor="@color/cardview_light_background" />
+        <RadioButton
+            android:textColor="#FFF"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lunch"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="8dp"/>
+
+        <RadioButton
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dinner"
+            android:textColor="#FFF"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="8dp"/>
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/button9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button7"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_below="@+id/radioButtonMealType"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:text="OFFERS"
         android:textColor="@color/cardview_light_background" />
 
@@ -61,22 +70,20 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:text="PLACE ORDER"
+        android:text="Continue"
         android:textColor="@color/cardview_light_background" />
 
-    <RelativeLayout
+    <com.squareup.timessquare.CalendarPickerView
+        android:id="@+id/calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="340dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/button10">
+        android:layout_height="343dp"
+        android:layout_above="@id/button6"
+        android:layout_below="@+id/button10"
+        android:layout_margin="10dp"
+        android:elevation="8dp"/>
 
-        <com.squareup.timessquare.CalendarPickerView
-            android:id="@+id/calendar_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"></com.squareup.timessquare.CalendarPickerView>
-    </RelativeLayout>
+
+
 
 
 </RelativeLayout>
