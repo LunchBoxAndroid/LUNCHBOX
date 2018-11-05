@@ -5,61 +5,70 @@ import com.google.firebase.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public class Order {
+    public static int LUNCH = 0;
+    public static int DINNER = 1;
+    public static int BOTH = 2;
+
+    public static int ORDER_DAILY = 0;
+    public static int ORDER_BULK = 1;
+    public static int ORDER_ADDON = 2;
+
     private String orderId;
     private String uid;
     private Timestamp timestamp;
     private List<Date> dates;
-//    private boolean dailyOrder;
-//    private boolean bulkOrder;
-//    private boolean addOn;
-    private Map<String,Boolean> orderType;
+    private int orderType;
     private double price;
     private int  bulkItemCount;     // In case of BulkOrders
     private List<String> items;     // in case of AddOnOrders
     private String transactionId;
-    private boolean mealType;       // 0 - Lunch ; 1 - Dinner
+    private int mealType;       // 0 - Lunch ; 1 - Dinner ; 2 - Both
 
-    public Order(String orderId, String uid, Map<String, Boolean> orderType, boolean mealType) {
-        this.orderId = orderId;
+    public Order() {
+    }
+
+    public Order(String uid, int orderType, int mealType) {
+        this.orderId = UUID.randomUUID().toString();
         this.uid = uid;
         this.orderType = orderType;
         this.mealType = mealType;
     }
 
-    public Order() {
-    }
-
-    public Order(String orderId, String uid, Timestamp timestamp, List<Date> dates, Map<String, Boolean> orderType, double price) {     //Constructor for DailyOrders
-        this.orderId = orderId;
+    public Order(String uid, Timestamp timestamp, List<Date> dates, int orderType, double price, int mealType) {     //Constructor for DailyOrders
+        this.orderId = UUID.randomUUID().toString();
         this.uid = uid;
         this.timestamp = timestamp;
         this.dates = dates;
         this.orderType = orderType;
         this.price = price;
+        this.mealType = mealType;
     }
 
-    public Order(String orderId, String uid, Timestamp timestamp, Map<String, Boolean> orderType, double price, int bulkItemCount) {    //Constructor for BulkOrders
-        this.orderId = orderId;
+    public Order(String uid, Timestamp timestamp, int orderType, double price, int bulkItemCount, int mealType) {    //Constructor for BulkOrders
+        this.orderId = UUID.randomUUID().toString();
         this.uid = uid;
         this.timestamp = timestamp;
         this.orderType = orderType;
         this.price = price;
         this.bulkItemCount = bulkItemCount;
+        this.mealType = mealType;
     }
 
-    public Order(String orderId, String uid, Timestamp timestamp, Map<String, Boolean> orderType, double price, List<String> items) {   //Constructor for AddOnOrders
-        this.orderId = orderId;
+    public Order(String uid, Timestamp timestamp, int orderType, double price, List<String> items,int mealType) {   //Constructor for AddOnOrders
+        this.orderId = UUID.randomUUID().toString();
         this.uid = uid;
         this.timestamp = timestamp;
         this.orderType = orderType;
         this.price = price;
         this.items = items;
+        this.mealType = mealType;
     }
 
-    public Order(String orderId, String uid, Timestamp timestamp, List<Date> dates, Map<String, Boolean> orderType, double price, int bulkItemCount, List<String> items, String transactionId) {
-        this.orderId = orderId;
+    public Order(String uid, Timestamp timestamp, List<Date> dates, int orderType, double price, int bulkItemCount, List<String> items, String transactionId, int mealType) {
+        this.orderId = UUID.randomUUID().toString();
         this.uid = uid;
         this.timestamp = timestamp;
         this.dates = dates;
@@ -68,6 +77,7 @@ public class Order {
         this.bulkItemCount = bulkItemCount;
         this.items = items;
         this.transactionId = transactionId;
+        this.mealType = mealType;
     }
 
     public String getOrderId() {
@@ -86,7 +96,7 @@ public class Order {
         return dates;
     }
 
-    public Map<String, Boolean> getOrderType() {
+    public int getOrderType() {
         return orderType;
     }
 
@@ -128,11 +138,11 @@ public class Order {
         this.transactionId = transactionId;
     }
 
-    public boolean isMealType() {
+    public int getMealType() {
         return mealType;
     }
 
-    public void setMealType(boolean mealType) {
+    public void setMealType(int mealType) {
         this.mealType = mealType;
     }
 }

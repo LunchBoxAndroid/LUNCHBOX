@@ -85,18 +85,15 @@ public class Home extends AppCompatActivity {
         dailyOrderContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String,Boolean> orderType = new HashMap<>();
-                orderType.put("DailyOrder",true);
-                orderType.put("BulkOrder",false);
-                orderType.put("AddOnOrder",false);
                 List<Date> selDate= calendar.getSelectedDates();
-                Order order = new Order(UUID.randomUUID().toString(),firebaseAuth.getUid(), Timestamp.now(),selDate,orderType,selDate.size()*100);
+                Order order = new Order(firebaseAuth.getUid(), Timestamp.now(),selDate,Order.ORDER_DAILY,selDate.size()*100,Order.LUNCH);
                 Log.i("OrderId",order.getOrderId());
                 Log.i("UserId",order.getUid());
                 Log.i("TimeStamp",order.getTimestamp().toString());
-                Log.i("OrderType",order.getOrderType().toString());
+                Log.i("OrderType", String.valueOf(order.getOrderType()));
                 Log.i("Selected Dates",order.getDates().toString());
                 Log.i("Price",String.valueOf(order.getPrice()));
+                Log.i("Meal type", String.valueOf(order.getMealType()));
             }
         });
 
