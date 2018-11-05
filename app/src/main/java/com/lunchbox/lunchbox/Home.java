@@ -63,25 +63,6 @@ public class Home extends AppCompatActivity {
         calendar.init(lowerLimit.getTime(), upperLimit.getTime())
                 .inMode(MULTIPLE);
 
-        final long[] count={0};
-//        calendar.setOnDateSelectedListener(new CalendarPickerView.OnDateSelectedListener() {
-//
-//            @Override
-//            public void onDateSelected(Date date) {
-////                if (count[0] < 6)
-////                    count[0]++;
-////                else{
-////                    calendar.selectDate(date);
-////                }
-//            }
-//
-//            @Override
-//            public void onDateUnselected(Date date) {
-////                count[0]--;
-//            }
-//
-//
-//        });
         dailyOrderContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
