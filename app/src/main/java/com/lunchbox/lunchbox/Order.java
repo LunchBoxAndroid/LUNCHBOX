@@ -2,12 +2,14 @@ package com.lunchbox.lunchbox;
 
 import com.google.firebase.Timestamp;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
-public class Order {
+
+
+public class Order implements Serializable{
     public static int LUNCH = 0;
     public static int DINNER = 1;
     public static int BOTH = 2;
@@ -37,30 +39,28 @@ public class Order {
         this.mealType = mealType;
     }
 
-    public Order(String uid, Timestamp timestamp, List<Date> dates, int orderType, double price, int mealType) {     //Constructor for DailyOrders
+    public Order(String uid, List<Date> dates, int orderType, double price, int mealType) {     //Constructor for DailyOrders
         this.orderId = UUID.randomUUID().toString();
         this.uid = uid;
-        this.timestamp = timestamp;
         this.dates = dates;
         this.orderType = orderType;
         this.price = price;
         this.mealType = mealType;
     }
 
-    public Order(String uid, Timestamp timestamp, int orderType, double price, int bulkItemCount, int mealType) {    //Constructor for BulkOrders
+    public Order(String uid, List<Date> dates, int orderType, double price, int bulkItemCount, int mealType) {    //Constructor for BulkOrders
         this.orderId = UUID.randomUUID().toString();
         this.uid = uid;
-        this.timestamp = timestamp;
+        this.dates = dates;
         this.orderType = orderType;
         this.price = price;
         this.bulkItemCount = bulkItemCount;
         this.mealType = mealType;
     }
 
-    public Order(String uid, Timestamp timestamp, int orderType, double price, List<String> items,int mealType) {   //Constructor for AddOnOrders
+    public Order(String uid, int orderType, double price, List<String> items,int mealType) {   //Constructor for AddOnOrders
         this.orderId = UUID.randomUUID().toString();
         this.uid = uid;
-        this.timestamp = timestamp;
         this.orderType = orderType;
         this.price = price;
         this.items = items;
@@ -144,5 +144,33 @@ public class Order {
 
     public void setMealType(int mealType) {
         this.mealType = mealType;
+    }
+
+    public String toString(){
+        String res = "";
+        res += "OrderId = " + orderId + ",\n uid = " + uid +
+                ",\norderType = " + orderType +
+                ",\nprice = " + price +
+                ",\nbulkItemCount = " + bulkItemCount +
+                ",\ntransactionId = " + transactionId +
+                ",\nmealType = " + mealType +
+                ",\ndates = ";
+        if (dates != null)
+            res += dates.toString();
+        else
+            res += "null";
+
+        res += ",\nitems = " ;
+        if (items != null)
+            res += items.toString();
+        else
+            res += "null";
+
+        res += ",\ntimestamp = ";
+        if (items != null)
+            res += timestamp.toString();
+        else
+            res += "null";
+        return res;
     }
 }

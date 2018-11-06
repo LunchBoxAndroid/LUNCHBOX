@@ -303,22 +303,22 @@
                     </android.support.v7.widget.CardView>
 -->
 
-                    <Button
-                        android:id="@+id/add_on_button_bulk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:text="Add ON"
-                        android:textColor="#FFFFFF"
-                        app:layout_constraintTop_toBottomOf="@id/chap_card"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:layout_editor_absoluteX="8dp" />
-
 
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.v7.widget.CardView>
+
+            <com.squareup.timessquare.CalendarPickerView
+                android:id="@+id/calendar_view_bulk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:elevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ord_details_card" />
 
         </android.support.constraint.ConstraintLayout>
 

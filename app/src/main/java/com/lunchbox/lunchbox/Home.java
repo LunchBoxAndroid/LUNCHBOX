@@ -1,5 +1,6 @@
 package com.lunchbox.lunchbox;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -67,14 +68,25 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 List<Date> selDate= calendar.getSelectedDates();
-                Order order = new Order(firebaseAuth.getUid(), Timestamp.now(),selDate,Order.ORDER_DAILY,selDate.size()*100,Order.LUNCH);
-                Log.i("OrderId",order.getOrderId());
-                Log.i("UserId",order.getUid());
-                Log.i("TimeStamp",order.getTimestamp().toString());
-                Log.i("OrderType", String.valueOf(order.getOrderType()));
-                Log.i("Selected Dates",order.getDates().toString());
-                Log.i("Price",String.valueOf(order.getPrice()));
-                Log.i("Meal type", String.valueOf(order.getMealType()));
+
+                int mealType;
+                if (radioGroupMealType.getCheckedRadioButtonId() == R.id.radioDailyLunch)
+                    mealType = Order.LUNCH;
+                else if (radioGroupMealType.getCheckedRadioButtonId() == R.id.radioDailyDinner)
+                    mealType = Order.DINNER;
+                else
+                    return;
+
+
+                Order order = new Order(firebaseAuth.getUid(),selDate,Order.ORDER_DAILY,selDate.size()*100,mealType);
+                Log.i("Order ",order.toString());
+
+
+                Log.i("Order",order.toString());
+                Intent intent = new Intent(Home.this,OrderActivity.class);
+                intent.putExtra("Redirect",Order.ORDER_DAILY);
+                intent.putExtra("OrderObject",order);
+                startActivity(intent);
             }
         });
 
