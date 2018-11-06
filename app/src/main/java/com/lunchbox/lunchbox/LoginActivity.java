@@ -32,8 +32,6 @@ public class LoginActivity extends AppCompatActivity {
                 if ( phone.isEmpty() || phone.length() != 10 ){
                     textInputLayout.setError("Enter a 10 digit phone number");
                     textInputLayout.requestFocus();
-//                    phoneNumberEditText.setError("Enter a 10 digit phone number");
-//                    phoneNumberEditText.requestFocus();
                     return;
                 }
 
