@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        continueButton = findViewById(R.id.continueButton);
+        continueButton = findViewById(R.id.verifyButton);
         phoneNumberEditText = findViewById(R.id.phoneNumberEditText);
 
         continueButton.setOnClickListener(new View.OnClickListener() {

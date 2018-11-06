@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#9d0ce5</color>
-    <color name="colorPrimaryDark">#1f34bb</color>
+    <color name="colorPrimary">#343542</color>
+    <color name="colorPrimaryDark">#0e0f1b</color>
     <color name="colorAccent">#FFF</color>
-    <color name="colorProgress">#FFF</color>
-    <color name="colorPhoneNumber">#fff200</color>
-    <color name="backgroundtint">#343542</color>
+    <color name="colorSecondary">#fff200</color>
+    <color name="colorPrimaryLight">#5e5f6d</color>
 </resources>

@@ -3,10 +3,10 @@
     android:shape="rectangle"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <solid
-        android:color="@color/colorAccent"/>
+        android:color="@color/colorPrimary"/>
     <stroke
         android:width="3dp"
-        android:color="@color/colorPhoneNumber"/>
+        android:color="@color/colorSecondary"/>
     <corners
         android:radius="4dp"/>
     <size
