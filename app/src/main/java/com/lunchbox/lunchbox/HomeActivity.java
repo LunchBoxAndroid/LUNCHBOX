@@ -2,6 +2,7 @@ package com.lunchbox.lunchbox;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -23,6 +25,11 @@ public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseAuth firebaseAuth;
+    private boolean doubleBackToExitPressedOnce = false;
+    NavigationView navigationView;
+    FragmentManager fragmentManager;
+    private boolean isOnHomeFragment = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,12 +56,12 @@ public class HomeActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         navigationView.setCheckedItem(R.id.nav_home);
 
-        FragmentManager fragmentManager=getSupportFragmentManager();
+        fragmentManager=getSupportFragmentManager();
         FragmentTransaction ft =fragmentManager.beginTransaction();
         ft.replace(R.id.screen,new homeFragment());
         ft.commit();
@@ -65,9 +72,31 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (isOnHomeFragment){
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
         } else {
-            super.onBackPressed();
+            navigationView.setCheckedItem(R.id.nav_home);
+            FragmentTransaction ft =fragmentManager.beginTransaction();
+            ft.replace(R.id.screen,new homeFragment());
+            isOnHomeFragment = true;
+            ft.commit();
         }
+
+
     }
 
     @Override
@@ -103,7 +132,12 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
+            isOnHomeFragment = true;
+        } else {
+            isOnHomeFragment = false;
+        }
 
+        if (id == R.id.nav_home) {
             fragment=new homeFragment();
 
         } else if (id == R.id.nav_reschedule) {
@@ -137,4 +171,6 @@ public class HomeActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
