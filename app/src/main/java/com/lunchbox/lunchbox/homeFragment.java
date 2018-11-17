@@ -26,7 +26,7 @@ public class homeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.dailyOrderButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
