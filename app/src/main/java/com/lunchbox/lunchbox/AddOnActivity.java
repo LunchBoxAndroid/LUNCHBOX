@@ -1,5 +1,6 @@
 package com.lunchbox.lunchbox;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,11 @@ public class AddOnActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_on);
+
+        Order order;
+
+        Intent intent = getIntent();
+        order  = (Order) intent.getSerializableExtra("OrderObject");
 
         final List<AddOnItem> addOnItems = new ArrayList<>();
 

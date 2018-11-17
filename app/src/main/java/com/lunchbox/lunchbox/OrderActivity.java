@@ -11,6 +11,7 @@ public class OrderActivity extends AppCompatActivity {
 
     FloatingActionButton addOnButton;
     TextView tv;
+    Order order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +23,15 @@ public class OrderActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int redirect = intent.getIntExtra("Redirect",-1);
-        Order order  = (Order) intent.getSerializableExtra("OrderObject");
+        order  = (Order) intent.getSerializableExtra("OrderObject");
 
         tv.setText(order.toString());
 
         addOnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent intent1 = new Intent(OrderActivity.this,AddOnActivity.class);
+                intent1.putExtra("OrderObject",order);
             }
         });
 
