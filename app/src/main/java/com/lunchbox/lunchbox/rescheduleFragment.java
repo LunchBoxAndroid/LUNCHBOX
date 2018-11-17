@@ -28,7 +28,7 @@ public class rescheduleFragment extends Fragment {
         Calendar nextYear = Calendar.getInstance();
         nextYear.add(Calendar.YEAR, 1);
 
-        CalendarPickerView calendar = (CalendarPickerView)view.findViewById(R.id.calendar_view);
+        CalendarPickerView calendar =view.findViewById(R.id.calendar_view);
         Date today = new Date();
         Calendar calen=Calendar.getInstance();
         calen.add(Calendar.MONTH,1);
