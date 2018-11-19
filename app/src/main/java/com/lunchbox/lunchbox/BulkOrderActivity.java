@@ -15,6 +15,8 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.timessquare.CalendarPickerView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -112,11 +114,15 @@ public class BulkOrderActivity extends AppCompatActivity {
                     mealType = Order.DINNER;
                 else
                     return;
-                Order order = new Order(firebaseAuth.getUid(),dates,Order.ORDER_BULK,c*100,c,mealType);
-                Log.i("Order",order.toString());
+
+                List<Meal> meals = new ArrayList<>();
+
+                for (Date date : dates){
+                    meals.add(new Meal(date,mealType,new ArrayList<Integer>(),c));
+                }
+
                 Intent intent = new Intent(BulkOrderActivity.this,OrderActivity.class);
-                intent.putExtra("Redirect",Order.ORDER_BULK);
-                intent.putExtra("OrderObject",order);
+                intent.putExtra("meals",(Serializable) meals);
                 startActivity(intent);
             }
         });

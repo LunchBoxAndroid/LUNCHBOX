@@ -14,6 +14,8 @@ import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.timessquare.CalendarPickerView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -71,21 +73,20 @@ public class Home extends AppCompatActivity {
 
                 int mealType;
                 if (radioGroupMealType.getCheckedRadioButtonId() == R.id.radioDailyLunch)
-                    mealType = Order.LUNCH;
+                    mealType = Meal.LUNCH;
                 else if (radioGroupMealType.getCheckedRadioButtonId() == R.id.radioDailyDinner)
-                    mealType = Order.DINNER;
+                    mealType = Meal.DINNER;
                 else
                     return;
 
+                List<Meal> meals = new ArrayList<>();
 
-                Order order = new Order(firebaseAuth.getUid(),selDate,Order.ORDER_DAILY,selDate.size()*100,mealType);
-                Log.i("Order ",order.toString());
+                for (Date date : selDate){
+                    meals.add(new Meal(date,mealType,new ArrayList<Integer>(),1));
+                }
 
-
-                Log.i("Order",order.toString());
                 Intent intent = new Intent(Home.this,OrderActivity.class);
-                intent.putExtra("Redirect",Order.ORDER_DAILY);
-                intent.putExtra("OrderObject",order);
+                intent.putExtra("meals", (Serializable) meals);
                 startActivity(intent);
             }
         });
