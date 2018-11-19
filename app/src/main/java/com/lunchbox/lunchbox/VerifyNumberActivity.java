@@ -136,7 +136,7 @@ public class VerifyNumberActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         if (firebaseAuth.getCurrentUser() != null) {
-                            Intent intent = new Intent(VerifyNumberActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(VerifyNumberActivity.this, SignupActivity.class);//HomeActivity.class
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
 //                            FirebaseUserMetadata metadata = firebaseAuth.getCurrentUser().getMetadata();
