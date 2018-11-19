@@ -30,4 +30,8 @@ public class AddOnItem implements Serializable{
         this.isVeg = addOnItem.isVeg;
         this.quantity = addOnItem.quantity;
     }
+
+    public AddOnItem() {
+
+    }
 }

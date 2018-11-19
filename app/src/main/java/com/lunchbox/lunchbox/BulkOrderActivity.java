@@ -109,9 +109,9 @@ public class BulkOrderActivity extends AppCompatActivity {
                 int c = Integer.parseInt(count.getText().toString().trim());
                 int mealType;
                 if (radioGroup.getCheckedRadioButtonId() == R.id.radioBulkLunch)
-                    mealType = Order.LUNCH;
+                    mealType = Meal.LUNCH;
                 else if (radioGroup.getCheckedRadioButtonId() == R.id.radioBulkDinner)
-                    mealType = Order.DINNER;
+                    mealType = Meal.DINNER;
                 else
                     return;
 

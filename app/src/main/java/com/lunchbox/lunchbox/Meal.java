@@ -14,6 +14,8 @@ public class Meal implements Serializable {
     private int mealType;
     private List<Integer> addOn;
     private int mealCount;
+    private String orderId;
+    private String uid;
 
     public Meal() {
     }
@@ -23,6 +25,15 @@ public class Meal implements Serializable {
         this.mealType = mealType;
         this.addOn = addOn;
         this.mealCount = mealCount;
+    }
+
+    public Meal(Date date, int mealType, List<Integer> addOn, int mealCount, String orderId, String uid) {
+        this.date = date;
+        this.mealType = mealType;
+        this.addOn = addOn;
+        this.mealCount = mealCount;
+        this.orderId = orderId;
+        this.uid = uid;
     }
 
     public void setDate(Date date) {
@@ -55,6 +66,22 @@ public class Meal implements Serializable {
 
     public int getMealCount() {
         return mealCount;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     @Override
