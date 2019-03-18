@@ -85,13 +85,13 @@ public class BulkOrderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int c = Integer.parseInt(count.getText().toString().trim());
 
-                if (c > 0) {
+                if (c > 1) {
                     count.setText(String.valueOf(c-1));
                 }
 
-                if (c == 0){
-                    proceedToPay.setEnabled(false);
-                }
+//                if (c == 1){
+//                    proceedToPay.setEnabled(false);
+//                }
             }
         });
 

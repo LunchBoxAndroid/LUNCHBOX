@@ -11,7 +11,7 @@
         android:layout_height="320dp"
         android:layout_below="@+id/textView8"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"></com.squareup.timessquare.CalendarPickerView>
+        android:layout_marginTop="32dp" />
 
     <TextView
         android:id="@+id/textView8"
